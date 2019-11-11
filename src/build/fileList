@@ -1,0 +1,10 @@
+# List all Fortran 90+ source files that need to be compiled
+fortranFiles=	primes/primes.f95\
+                modules/logtoint.f95\
+                modules/sieve.f95\
+
+# List all C source files that need to be compiled
+# cFiles=         primes/myfile.c\
+
+# List all Fortran 77 files that need to be compiled
+# f77Files=       primes/myfile.f\

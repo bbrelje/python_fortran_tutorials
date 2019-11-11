@@ -1,0 +1,38 @@
+!    -*- f90 -*-
+! Note: the context of this file is case sensitive.
+
+python module primes ! in 
+    interface  ! in :primes
+        module primes ! in :primes:../primes/primes.f95
+            use log_to_int_module
+            use sieve_module
+            subroutine pysieve(is_prime,n_max) ! in :primes:../primes/primes.f95:primes
+                logical dimension(n_max),intent(out),depend(n_max) :: is_prime
+                integer intent(in) :: n_max
+            end subroutine pysieve
+            subroutine pylogical_to_integer(prime_numbers,is_prime,num_primes,n) ! in :primes:../primes/primes.f95:primes
+                integer dimension(num_primes),intent(out),depend(num_primes) :: prime_numbers
+                logical dimension(n),intent(in) :: is_prime
+                integer intent(in) :: num_primes
+                integer, optional,intent(in),check(len(is_prime)>=n),depend(is_prime) :: n=len(is_prime)
+            end subroutine pylogical_to_integer
+        end module primes
+        module log_to_int_module ! in :primes:../modules/logtoint.f95
+            subroutine logical_to_integer(prime_numbers,is_prime,num_primes,n) ! in :primes:../modules/logtoint.f95:log_to_int_module
+                integer dimension(num_primes),intent(out),depend(num_primes) :: prime_numbers
+                logical dimension(n),intent(in) :: is_prime
+                integer intent(in) :: num_primes
+                integer, optional,intent(in),check(len(is_prime)>=n),depend(is_prime) :: n=len(is_prime)
+            end subroutine logical_to_integer
+        end module log_to_int_module
+        module sieve_module ! in :primes:../modules/sieve.f95
+            subroutine sieve(is_prime,n_max) ! in :primes:../modules/sieve.f95:sieve_module
+                logical dimension(n_max),intent(out),depend(n_max) :: is_prime
+                integer intent(in) :: n_max
+            end subroutine sieve
+        end module sieve_module
+    end interface 
+end python module primes
+
+! This file was auto-generated with f2py (version:2).
+! See http://cens.ioc.ee/projects/f2py2e/

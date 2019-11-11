@@ -1,0 +1,8 @@
+*.mod
+*.o
+*.so
+*.a
+*.dep
+src/build/*.f90
+src/build/*.c
+*.autogen

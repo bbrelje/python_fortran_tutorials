@@ -1,0 +1,33 @@
+{
+    "version": "2.0.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Launch Python in GDB directly",
+            "type": "cppdbg",
+            "request": "launch",
+            "targetArchitecture": "x86",
+            "program": "/usr/bin/python3",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "args": ["${file}"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceRoot}",
+            "externalConsole": false,
+        },
+        {
+            "name": "Attach C/C++/Fortran (GDB)",
+            "type": "cppdbg",
+            "request": "attach",
+            "processId": "${command:pickProcess}",
+            "targetArchitecture": "x86",
+            "program": "/usr/bin/python3",            
+            "miDebuggerPath": "/usr/bin/gdb",
+        }
+    ]
+}
