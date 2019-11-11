@@ -6,3 +6,4 @@
 src/build/*.f90
 src/build/*.c
 *.autogen
+config.mk
